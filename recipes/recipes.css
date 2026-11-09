@@ -1,4 +1,8 @@
-/* ---------- Basics (old-school look) ---------- */
+
+/* =================================
+   GENERAL STYLE – OLD SCHOOL LOOK
+================================= */
+
 html {
   background: #c0c0c0;
 }
@@ -14,6 +18,10 @@ body {
   padding: 20px;
   border: 3px ridge #808080;
 }
+
+/* =================================
+   HEADINGS
+================================= */
 
 h1 {
   text-align: center;
@@ -33,24 +41,44 @@ h3 {
   margin-bottom: 4px;
 }
 
-/* default-style links */
-a:link    { color: #0000ee; }
-a:visited { color: #551a8b; }
-a:hover   { color: #ff0000; }
+/* =================================
+   LINKS
+================================= */
 
-/* ---------- Image ---------- */
+a:link {
+  color: #0000ee;
+}
+
+a:visited {
+  color: #551a8b;
+}
+
+a:hover {
+  color: #ff0000;
+}
+
+/* =================================
+   RECIPE IMAGE
+================================= */
+
 main > img {
   display: block;
+  max-width: 100%;
+  height: auto;
   margin: 0 auto;
   border: 3px ridge #808080;
 }
 
-/* ---------- Score (Nutri-Score style) ---------- */
+/* =================================
+   SCORE – NUTRI-SCORE STYLE
+================================= */
+
 .score-row {
   display: flex;
   align-items: center;
   gap: 16px;
   margin-bottom: 12px;
+  flex-wrap: wrap;
 }
 
 .score-label {
@@ -73,16 +101,33 @@ main > img {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: #fff;
-  opacity: 0.4; /* dim the inactive letters */
+  opacity: 0.4;
 }
 
-.nutri-score .a { background: #038141; }
-.nutri-score .b { background: #85bb2f; }
-.nutri-score .c { background: #fecb02; }
-.nutri-score .d { background: #ee8100; }
-.nutri-score .e { background: #e63e11; }
+/* Score colours */
 
-/* the selected letter */
+.nutri-score .a {
+  background: #038141;
+}
+
+.nutri-score .b {
+  background: #85bb2f;
+}
+
+.nutri-score .c {
+  background: #fecb02;
+}
+
+.nutri-score .d {
+  background: #ee8100;
+}
+
+.nutri-score .e {
+  background: #e63e11;
+}
+
+/* Selected score */
+
 .nutri-score span.active {
   opacity: 1;
   width: 42px;
@@ -93,8 +138,21 @@ main > img {
   z-index: 1;
 }
 
+/* =================================
+   MOBILE
+================================= */
 
-/* ---------- Print (A4) ---------- */
+@media (max-width: 690px) {
+  body {
+    margin: 10px;
+    padding: 15px;
+  }
+}
+
+/* =================================
+   PRINT – A4
+================================= */
+
 @page {
   size: A4 portrait;
   margin: 15mm;
@@ -125,22 +183,33 @@ main > img {
     widows: 3;
   }
 
-  /* page navigation is useless on paper */
   nav {
     display: none;
   }
 
-  h1 { font-size: 24pt; color: #000; }
-  h2 { font-size: 16pt; color: #000; border-bottom: 1px solid #000; }
-  h3 { font-size: 13pt; color: #000; }
+  h1 {
+    font-size: 24pt;
+    color: #000;
+  }
 
-  /* keep headings with the content that follows them */
-  h1, h2, h3 {
+  h2 {
+    font-size: 16pt;
+    color: #000;
+    border-bottom: 1px solid #000;
+  }
+
+  h3 {
+    font-size: 13pt;
+    color: #000;
+  }
+
+  h1,
+  h2,
+  h3 {
     break-after: avoid;
     page-break-after: avoid;
   }
 
-  /* avoid splitting blocks across two pages */
   section,
   li,
   .score-row,
@@ -162,7 +231,6 @@ main > img {
     border: 1px solid #000;
   }
 
-  /* make browsers print the Nutri-Score colors */
   .nutri-score,
   .nutri-score span {
     -webkit-print-color-adjust: exact;
